@@ -1,0 +1,530 @@
+<DOCTYPE html>
+    <head>
+        <style>
+            #message1 {
+                display: none;
+            }
+
+            h1{
+                color:red;
+
+
+                font-size: 100px;
+                font-weight: bold;
+                font-family: Arial;
+                text-transform: uppercase;
+            }
+
+            #form {
+                position: relative;
+                left:700px;
+                top: 100px;
+            }
+
+            #table {
+                width: 400px;
+              
+                padding: 50px;
+                margin: 20px;
+                position: relative;
+                left:37%;
+                bottom:200px;
+            }
+
+            #answers {
+                width: 400px;
+          
+                padding: 50px;
+                margin: 20px;
+                position: relative;
+                left:37%;
+                bottom:200px;
+            }
+
+            body {
+                background-image: url("numbersImage.png");
+                background-repeat:no-repeat; 
+                font-style: oblique;
+                font-size: 16px;
+                color:white;
+                font-size:30px;
+            }
+
+            #submit {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 12px;
+                position: relative;
+                top:60px;
+            }
+
+            #checkGuess {
+                position: relative;
+                left:80px;
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 12px;
+                
+            }
+
+            #happy {
+                display:none;
+                position: relative;
+                left: 100px;
+            }
+
+          
+
+            #guessUsed {
+                position: relative;
+                left:80px;
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                border-radius: 12px;
+                top:20px;
+                
+            }
+
+            #image {
+                position: relative;
+                left:1700px;
+                bottom: 200px;
+            }
+
+            #sad {
+                display: none;
+                position: relative;
+                bottom: 800px;
+                left:1500px;
+            }
+
+            input[type=number], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0px;
+                display:inline-block;
+                border : 1px solid grey;
+                border-radius: 4px;
+                box-sizing: border-box;
+                cursor: pointer;
+            }
+
+            #game{
+                display: none;
+                position: relative;
+                bottom: 1100px;
+            
+            }
+
+            #congratulate {
+                display: none;
+                position: relative;
+                bottom: 700px;
+                left: 150px;
+            }
+            
+            #party {
+                display: none;
+                position: relative;
+                bottom: 1000px;
+                left:1500px;
+            }
+
+            .slidecontainer {
+                width: 100%;
+            }
+
+            .slider {
+                -webkit-appearance: none;
+                width: 100%;
+                height: 25px;
+                background: linear-gradient(90deg, rgb(214,214,214) 60%, rgb(214,214,214) 60%);
+                outline: none;
+                opacity: 0.9;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+                border-radius: 12px;
+                box-shadow: 0px 1px 10px 1px black;
+                position: relative;
+                top:10px;
+            }
+
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 25px;
+                height: 25px;
+                background: rgb(25, 7, 190);
+                cursor: pointer;
+                transition: 2s;
+                border-radius: 50%;
+               
+            }
+
+            .slider::-moz-range-thumb {
+                width: 25px;
+                height: 25px;
+                background: #4CAF50;
+                cursor: pointer;
+                
+            }
+
+            .slider::after {
+                content: "100";
+                color:  rgb(0, 255, 13);
+                font-size: 2rem;
+                position: absolute;
+                left:90%;
+                top:85%;
+            }
+
+            .slider::before {
+                content: "1";
+                color: rgb(0, 255, 13);
+                font-size: 2rem;
+                position: absolute;
+                left:2%;
+                top:85%;
+            }
+
+            #name {
+                color:white;
+                position: relative;
+                top:20px;
+            }
+
+            p {
+                color:red;
+            }
+
+            #para1, #para2 {
+                color:white;
+            }
+
+            #para {
+                color:white;
+                position: relative;
+                top:20px;
+            }
+
+            #textBox {
+                position: relative;
+                top: 40px;
+            }
+
+            .wordart {
+                font-family: Arial, sans-serif;
+                font-size: 4em;
+                font-weight: bold;
+                position: relative;
+                z-index: 1;
+                display: inline-block;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .wordart.blues .text {
+                font-family: Impact, sans-serif;
+                color: red;
+                -webkit-text-stroke: 0.01em #0000aa;
+                filter: progid:DXImageTransform.Microsoft.Glow(Color=#0000aa,Strength=1);
+                text-shadow: 0.13em -0.13em 0px #0000aa;
+                letter-spacing: -0.05em;
+                position: relative;
+                left:550px;
+                bottom:90px;
+            }
+
+            #numberGuess {
+                position: relative;
+                bottom:1400px;
+                left:1700px;
+                display: block;
+             
+            }
+
+            #question {
+                position: relative;
+                z-index: -1;
+                bottom: 1000px;
+                left:1600px;
+            }
+
+            #arrowRight {
+                position:absolute;
+                top:69%;
+                left:18%;
+                
+            }
+
+            #arrowLeft {
+                position:absolute;
+                top:69%;
+                left:75%;
+            }
+
+            #information {
+                position:relative;
+                bottom:50px;
+                color:white;
+            }
+
+            
+
+            #textBox {
+                position: relative;
+                top:150px;
+            }
+
+           
+
+         
+
+            
+            
+
+          
+
+
+          
+
+            
+
+
+        </style>
+    </head>
+    <body>
+
+        <div class="wordart blues">
+            <span class="text">Guessing Game</span>
+        </div>
+
+        <img id= "image" src="question.jpg" width="200px" height="200px">
+
+
+
+        
+    <div id="table">
+        
+            <p id="para1" class="text1">
+                <strong>Num of guesses: 10</strong>
+            </p>
+
+            <p id="para2" class="text2">
+                <strong>Used guesses: 0</strong>
+            </p>
+            <span id="para3" class="text3">
+            <strong>Guess a number between 1 and 100 : </strong> 
+            </span>
+    
+            <br> <br>
+
+            
+        <div class="slidecontainer">
+            <input type="range" id="myRange" class="slider" name="rangeInput" min="1" max="100" value="1">
+            <input type="number" id="textBox" name="guessingNumber" value="" onchange="updateTextInput(this.value);">
+
+            <p id="information">
+                Range slider goes directly to the value chosen by the user in the text box
+            </p>
+            <p id="name">Value: <span id="demo"></span></p>
+        </div>
+    
+        
+        
+            <button type="button" onclick ="myFunction()" id="submit" >Submit</button>
+
+        
+        
+
+
+    </div>
+
+    
+
+ 
+
+    <div id="answers">
+        <p id="para">
+
+        </p>
+
+
+    </div>
+
+
+   <img id="question" src="guessImage.png" width="200px" height="200px">
+
+    <img id="sad" src="sadFace.png" width="300px" height="300px">
+
+    <img id="game" src="gameOver.png" width="500px" height="500px">
+
+    <img id="congratulate" src="congratulations.jpg" width="300px" height="300px">
+
+    <img id="party" src="celebrate.jpg" width="300px" height="300px">
+
+    <img id="arrowRight" src="rightArrow.png" width="300px" height="300px">
+
+    <img id ="arrowLeft" src="leftArrow.png" width="300px" height="300px">
+
+    </body>
+
+
+
+    <script>
+    
+        
+        var winningNumber =  Math.floor((Math.random() * 100) + 1);
+        console.log(winningNumber);
+        
+            var guess = 1;
+
+        function myFunction() {
+            
+            var guessNumber = document.getElementById("textBox").value;
+            if (guessNumber == winningNumber) {
+                
+                document.getElementById("para").innerHTML="You have guessed the right number you have taken " + (guess) + " guess/guesses ";
+                document.getElementById("congratulate").style.display="block";
+                document.getElementById("party").style.display="block";
+                document.getElementById("arrowRight").style.display="none";
+                document.getElementById("arrowLeft").style.display="none";
+                document.getElementById("textBox").disabled=true;
+                document.getElementById("submit").disabled=true;
+            }
+
+            else if (guessNumber < 0 || guessNumber > 100) {
+                guess ++;
+                document.getElementById("para").innerHTML=("The number is not within the range, Try Again!");
+            }
+
+            else if( guessNumber > winningNumber) {
+                guess ++;
+                document.getElementById("para").innerHTML=("Try Again. choose a smaller number");
+            }
+
+            else if (guessNumber < winningNumber) {
+                guess ++;
+                document.getElementById("para").innerHTML=("Try Again. Choose a bigger number");
+            }
+
+            if (guessNumber == "") {
+                document.getElementById("para").innerHTML=("You haven't entered a number yet try again")
+            }
+
+            if(!Math.floor(guessNumber)) {
+                document.getElementById("para").innerHTML=("You have entered decimal numbers, Try entering whole numbers")
+            }
+
+            numbersLeft();
+            Tries();
+            gameOver();
+            
+
+        }
+
+        
+        function gameOver() {
+            var numbers = (10 - (guess-1));
+            var numTries = guess-1;
+
+            if (numbers <= 0 && numTries >= 10) {
+               document.getElementById("para").innerHTML="Game Over, UNLUCKY MATE!!!";
+               document.getElementById("sad").style.display="block";
+               document.getElementById("game").style.display="block";
+               document.getElementById("arrowRight").style.display="none";
+               document.getElementById("arrowLeft").style.display="none";
+              
+
+                document.getElementById("submit").disabled=true;
+                document.getElementById("textBox").disabled=true;
+            } 
+        }
+
+        
+        
+        function numbersLeft () {
+            document.getElementById("para1").innerHTML = "Num of guesses: " + (10 - (guess-1 ));
+        }
+
+        
+        
+        function Tries() {
+            document.getElementById("para2").innerHTML = "Used guesses: " + (guess-1);
+        }
+
+
+
+        
+        
+        function updateTextInput(val) {
+            document.getElementById("myRange").value=val;
+            var y = slider.value;
+            var color2 = "linear-gradient(90deg, rgb(117,252,117)" + y + "%, rgb(214,214,214)" + y + "%)";
+            slider.style.background = color2;
+            output.innerHTML = slider.value;
+
+        }
+
+
+        
+        
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        
+        
+        
+        output.innerHTML = slider.value;
+
+        
+        
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+
+        
+        
+        slider.addEventListener("mousemove", function() {
+            var x = slider.value;
+            var color = "linear-gradient(90deg, rgb(117,252,117)" + x + "%, rgb(214,214,214)" + x + "%)";
+           slider.style.background = color;
+         
+        })
+
+           
+
+            
+   
+            
+            
+
+    </script>
+</html>
